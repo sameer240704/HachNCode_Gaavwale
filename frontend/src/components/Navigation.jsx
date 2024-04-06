@@ -44,7 +44,7 @@ const Navigaton = () => {
           <a
             href="#courses"
             className={activeLink === "courses" ? "active nav-ele" : "nav-ele"}
-            onClick={() => onUpdateActiveLink("labs")}
+            onClick={() => onUpdateActiveLink("courses")}
           >
             Courses
           </a>
@@ -53,38 +53,9 @@ const Navigaton = () => {
           <a
             href="#feedback"
             className={activeLink === "feedback" ? "active nav-ele" : "nav-ele"}
-            onClick={() => onUpdateActiveLink("courses")}
+            onClick={() => onUpdateActiveLink("feedback")}
           >
             Feedback
-          </a>
-        </li>
-        <li className="social-icon">
-          <a href="#">
-            <LoginIcon
-              className="nav-icon"
-              sx={{
-                fontSize: "42px",
-                border: "1px solid #121212",
-                padding: "5px",
-                borderRadius: "50%",
-              }}
-            />
-          </a>
-        </li>
-        <li className="social-icon">
-          <a
-            href="https://www.linkedin.com/in/aditi-ambasta-9581b4288/"
-            target="_blank"
-          >
-            <LinkedInIcon
-              className="nav-icon"
-              sx={{
-                fontSize: "42px",
-                border: "1px solid #121212",
-                padding: "5px",
-                borderRadius: "50%",
-              }}
-            />
           </a>
         </li>
 

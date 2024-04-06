@@ -31,7 +31,7 @@ export const sidebarData = [
   {
     name: "Music",
     icon: IoMusicalNotes,
-    links: "/courses",
+    links: "/music",
   },
   {
     name: "Visualization",
