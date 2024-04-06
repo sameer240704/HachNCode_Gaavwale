@@ -6,7 +6,7 @@ import Contact from "../components/Contact.jsx";
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="bg-[#f8c365]">
       <Navigation />
       <Banner />
       <Courses />

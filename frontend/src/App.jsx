@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Dashboard, Homepage, Login, SignUp, Music } from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";``
 import "./App.css";
 import Drums from "./components/Music/Drums";
 

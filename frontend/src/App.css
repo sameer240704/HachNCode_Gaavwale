@@ -29,8 +29,8 @@ html {
 
 body {
   font-weight: 400;
-  background-color: #f8c365 !important;
   color: #fff !important;
+  background-color: #2d3748;
   overflow-x: hidden;
   font-family: "Centra", sans-serif !important;
 }
@@ -487,4 +487,10 @@ select:focus {
   transform: scaleY(-1);
   position: absolute;
   top: 110rem;
+}
+
+/* dashboard */
+
+.dashboard {
+  background-color: #121212;
 }
