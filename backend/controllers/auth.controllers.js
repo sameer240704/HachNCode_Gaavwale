@@ -82,6 +82,10 @@ export const loginUser = asyncHandler(async (req, res) => {
       return res.status(400).json({ error: "Invalid username or password" });
     }
 
+    if (user.password !== password) {
+      return res.status(400).json({ error: "Invalid username or password" });
+    }
+
     generateTokenAndSetCookie(user._id, res);
 
     res.status(200).json({
