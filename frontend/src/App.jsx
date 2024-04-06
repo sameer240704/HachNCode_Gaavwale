@@ -1,9 +1,8 @@
-import { useState } from "react";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Dashboard, Homepage } from "./pages";
+import { Dashboard, Homepage, Music } from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
+import "./App.css";
 
 function App() {
   return (
@@ -17,6 +16,15 @@ function App() {
               <>
                 <Sidebar />
                 <Dashboard />
+              </>
+            }
+          />
+          <Route
+            path="/music"
+            element={
+              <>
+                <Sidebar />
+                <Music />
               </>
             }
           />
