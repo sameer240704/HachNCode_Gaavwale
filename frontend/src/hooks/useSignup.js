@@ -31,6 +31,9 @@ const useSignup = () => {
     try {
       const res = await fetch("http://localhost:4000/api/auth/register", {
         method: "POST",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
         body: JSON.stringify({
           name,
           username,
