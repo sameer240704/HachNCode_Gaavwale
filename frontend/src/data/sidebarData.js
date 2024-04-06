@@ -1,4 +1,4 @@
-import { MdLeaderboard, MdAssignment, MdDashboard } from "react-icons/md";
+import { MdLeaderboard, MdDashboard } from "react-icons/md";
 import { FaChartArea, FaPhotoVideo } from "react-icons/fa";
 import { IoPeopleSharp, IoMusicalNotes } from "react-icons/io5";
 
@@ -14,14 +14,9 @@ export const sidebarData = [
     links: "/leaderboard",
   },
   {
-    name: "Classmates",
+    name: "Games",
     icon: IoPeopleSharp,
-    links: "/classmates",
-  },
-  {
-    name: "Assignments",
-    icon: MdAssignment,
-    links: "/assignments",
+    links: "/games",
   },
   {
     name: "Courses",
