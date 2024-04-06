@@ -9,9 +9,9 @@ export default function Sidebar() {
   const { expanded, setExpanded } = useSidebarState();
 
   return (
-    <aside className="h-screen fixed z-10">
+    <aside className="h-screen fixed z-10 bg-gray-800">
       <nav
-        className="h-full flex flex-col bg-[#1f1f1f] border-r shadow-lg text-white"
+        className="h-full flex flex-col bg-[#F8C365] border-r shadow-lg text-white"
         style={{ width: expanded ? "20vw" : "4vw" }}
       >
         <div className="p-4 pb-2 flex justify-between items-center">
@@ -24,7 +24,7 @@ export default function Sidebar() {
           />
           <button
             onClick={() => setExpanded((current) => !current)}
-            className="p-1.5 rounded-lg bg-transparent hover:bg-blue-500"
+            className="p-1.5 rounded-lg bg-transparent hover:bg-yellow-200"
           >
             {expanded ? <LuChevronFirst /> : <LuChevronLast />}
           </button>
