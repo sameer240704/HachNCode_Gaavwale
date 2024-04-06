@@ -42,7 +42,9 @@ export const registerUser = asyncHandler(async (req, res, next) => {
       username,
       password,
       email,
-      profilePic: avatar,
+      profilePic: avatar
+        ? avatar
+        : "https://res.cloudinary.com/gaavwale/image/upload/v1712414241/public/szwigkyzs9xvoagviu8t.png",
       standard,
       school,
     });

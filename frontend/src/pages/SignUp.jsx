@@ -11,18 +11,14 @@ const SignUp = () => {
 		school: "",
 		Profile: "",
 		password: "",
-		confirmPassword: "",
-		gender: "",
+		confirmPassword: ""
 	});
 
 	const { loading, signup } = useSignup();
 
-	const handleCheckboxChange = (gender) => {
-		setInputs({ ...inputs, gender });
-	};
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		console.log(inputs);
 		await signup(inputs)
 	};
 
@@ -43,7 +39,7 @@ const SignUp = () => {
 							placeholder='John Doe'
 							className='w-full input input-bordered  h-10 bg-gray-600 text-green-300'
 							value={inputs.name}
-							onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
+							onChange={(e) => setInputs({ ...inputs, name: e.target.value })}
 						/>
 					</div>
 
@@ -108,6 +104,7 @@ const SignUp = () => {
 							placeholder='Enter Password'
 							className='w-full input input-bordered h-10 bg-gray-600 text-green-300'
 							value={inputs.password}
+							autoComplete="off"
 							onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
 						/>
 					</div>
@@ -121,7 +118,22 @@ const SignUp = () => {
 							placeholder='Confirm Password'
 							className='w-full input input-bordered h-10 bg-gray-600 text-green-300'
 							value={inputs.confirmPassword}
+							autoComplete="off"
 							onChange={(e) => setInputs({ ...inputs, confirmPassword: e.target.value })}
+						/>
+					</div>
+
+					<div>
+						<label className='label'>
+							<span className='text-base label-text text-black'>Profile Pic</span>
+						</label>
+						<input
+							type='file'
+							placeholder='Profile Pic'
+							className='w-full  text-green-300'
+							value={inputs.Profile}
+							autoComplete=""
+							onChange={(e) => setInputs({ ...inputs, Profile: e.target.value })}
 						/>
 					</div>
 
@@ -134,7 +146,7 @@ const SignUp = () => {
 					</Link>
 
 					<div>
-						<button className='btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-green-300 hover:text-green-300 border-none' disabled={loading}>
+						<button className='btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-green-300 hover:text-green-300 border-none' onClick={handleSubmit} disabled={loading}>
 							{loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
 						</button>
 					</div>
