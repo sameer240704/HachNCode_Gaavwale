@@ -22,7 +22,7 @@ const Login = () => {
       <div className="w-full p-6 rounded-lg shadow-md bg-gray-800">
         <h1 className="text-3xl font-semibold text-center text-gray-300">
           Login
-          <span className="text-yellow-200">Edutainment</span>
+          <span className="text-yellow-200"> Edutainment</span>
         </h1>
 
         <form>
@@ -43,7 +43,7 @@ const Login = () => {
             </label>
             <input
               type="email"
-              placeholder="Enter username"
+              placeholder="Enter email"
               className="rounded-lg px-4 w-full input input-bordered h-10 bg-gray-600 text-green-300"
             />
           </div>
@@ -66,7 +66,7 @@ const Login = () => {
           </Link>
 
           <div>
-            <button className='rounded-lg btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-yellow-200 border-none px-10 py-3' disabled={loading}>
+            <button className='rounded-lg btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-orange-300 border-none px-10 py-3' disabled={loading}>
                 {loading ? <span className='loading loading-spinner'></span> : "Log In"}
             </button>
         </div>

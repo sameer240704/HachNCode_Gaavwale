@@ -57,8 +57,8 @@ export default function Sidebar() {
           `}
           >
             <div className="leading-4">
-              <h4 className="font-semibold text-gray-800">John Doe</h4>
-              <span className="text-xs text-gray-800">johndoe@gmail.com</span>
+              <h4 className="font-semibold text-yellow-200">John Doe</h4>
+              <span className="text-xs text-yellow-200">johndoe@gmail.com</span>
             </div>
             <FiMoreVertical size={20} />
           </div>

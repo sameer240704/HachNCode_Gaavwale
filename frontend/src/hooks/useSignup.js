@@ -6,8 +6,8 @@ const useSignup = () => {
 	const [loading, setLoading] = useState(false);
 	const { setAuthUser } = useAuthContext();
 
-	const signup = async ({ fullName, username, email, standard, password, confirmPassword }) => {
-		const success = handleInputErrors({ fullName, username, email, standard, password, confirmPassword });
+	const signup = async ({ fullName, username, email, standard, password, confirmPassword, profilepic }) => {
+		const success = handleInputErrors({ fullName, username, email, standard, password, confirmPassword, profilepic });
 		if (!success) return;
  
 		setLoading(true);
@@ -36,8 +36,8 @@ const useSignup = () => {
 };
 export default useSignup;
 
-function handleInputErrors({ fullName, username, email, standard, password, confirmPassword }) {
-	if (!fullName || !username || !password || !confirmPassword ) {
+function handleInputErrors({ fullName, username, email, standard, password, confirmPassword, profilepic}) {
+	if (!fullName || !username || !password || !confirmPassword || !profilepic ) {
 		toast.error("Please fill in all fields");
 		return false;
 	}
