@@ -1,9 +1,8 @@
-import { useState } from "react";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Dashboard, Homepage, Login, SignUp } from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
+import "./App.css";
 
 function App() {
   return (
@@ -26,7 +25,15 @@ function App() {
           />
           <Route path="/signup" element={
               <SignUp />
-            } 
+            }  />
+          <Route
+            path="/music"
+            element={
+              <>
+                <Sidebar />
+                <Music />
+              </>
+            }
           />
         </Routes>
       </BrowserRouter>
