@@ -7,8 +7,12 @@ import pattern from "../assets/lotti/pattern.json";
 
 const SignUp = () => {
 	const [inputs, setInputs] = useState({
-		fullName: "",
+		name: "",
 		username: "",
+		email: "",
+		standard: "",
+		school: "",
+		Profile: "",
 		password: "",
 		confirmPassword: "",
 		gender: "",
@@ -35,6 +39,19 @@ const SignUp = () => {
                         Sign Up <span className='text-yellow-200'>Edutainment</span>
                     </h1>
 
+				<form onSubmit={handleSubmit}>
+					<div>
+						<label className='label p-2'>
+							<span className='text-base label-text text-black'>Full Name</span>
+						</label>
+						<input
+							type='text'
+							placeholder='John Doe'
+							className='w-full input input-bordered  h-10 bg-gray-600 text-green-300'
+							value={inputs.name}
+							onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
+						/>
+					</div>
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label className='label p-2'>
