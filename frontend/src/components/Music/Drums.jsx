@@ -63,9 +63,12 @@ const Drums = () => {
   return (
     <div
       className="h-screen absolute flex justify-center items-center"
-      style={{ left: expanded ? "20vw" : "4vw" }}
+      style={{
+        left: expanded ? "20vw" : "4vw",
+        width: expanded ? "80vw" : "96vw",
+      }}
     >
-      <h1>Hello</h1>
+      <div className="h-3/5 w-3/5 border-2"></div>
     </div>
   );
 };
