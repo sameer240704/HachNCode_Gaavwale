@@ -1,44 +1,116 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
 
-const Leaderboard = () => {
-  const [players, setPlayers] = useState([
-    { name: 'Player 1', score: 100 },
-    { name: 'Player 2', score: 80 },
-    { name: 'Player 3', score: 90 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-    { name: 'Player 4', score: 70 },
-  ]);
+const columns = [
+  { id: 'name', label: 'Player', minWidth: 170 },
+  {
+    id: 'score',
+    label: 'Score',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
+];
+
+function createData(name, score) {
+  return { name, score };
+}
+
+const rows = [
+  createData('Player 1', 100),
+  createData('Player 2', 80),
+  createData('Player 3', 90),
+  createData('Player 4', 70),
+  createData('Player 5', 85),
+  createData('Player 6', 75),
+  createData('Player 7', 95),
+  createData('Player 8', 65),
+  createData('Player 9', 90),
+  createData('Player 10', 80),
+];
+
+export default function StickyHeadTable() {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Player</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          {players.sort((a, b) => b.score - a.score).map((player, index) => (
-            <tr key={player.name}>
-              <td>{index + 1}</td>
-              <td>{player.name}</td>
-              <td>{player.score}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+      <TableContainer sx={{ maxHeight: 440 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{
+                    minWidth: column.minWidth,
+                    backgroundColor: '#fbb845', 
+                    fontWeight: 'bold',
+                  }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    key={row.name}
+                    sx={{
+                      '&:hover': {
+                        backgroundColor: '#fbb845', 
+                      },
+                    }}
+                  >
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number'
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </Paper>
   );
-};
-
-export default Leaderboard;
+}

@@ -3,3 +3,4 @@ export { default as Music } from "./Music";
 export { default as Dashboard } from "./Dashboard";
 export { default as Login } from "./Login";
 export { default as SignUp } from "./SignUp";
+export { default as LeaderBoard } from "./LeaderBoard";

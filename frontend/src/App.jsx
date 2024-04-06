@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Dashboard, Homepage, Login, SignUp, Music} from "./pages";
+import { Dashboard, Homepage, Login, SignUp, Music, LeaderBoard} from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
 ``;
@@ -23,6 +23,15 @@ function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/leaderboard"
+            element={
+              <>
+                <Sidebar />
+                <LeaderBoard />
+              </>
+            }
+          />
           <Route
             path="/music/drums"
             element={
