@@ -1,80 +1,100 @@
-import bcrypt from "bcrypt";
+import { ApiError } from "../utils/ApiError.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import User from "../models/user.models.js";
+import bcrypt from "bcryptjs";
 import generateTokenAndSetCookie from "../utils/generateToken.js";
 
-export const registerUser = async (req, res) => {
+export const registerUser = asyncHandler(async (req, res, next) => {
   try {
-    const { name, username, password, confirmPassword, member } = req.body;
+    const {
+      name,
+      username,
+      password,
+      confirmPassword,
+      profilePic,
+      email,
+      standard,
+      school,
+    } = req.body;
 
     if (password !== confirmPassword) {
-      return res.status(400).json({ message: "Passwords do not match" });
+      return res.status(400).json({ error: "Passwords don't match" });
     }
 
     const user = await User.findOne({ username });
 
     if (user) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ error: "Username already exists" });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // HASH PASSWORD HERE
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedPassword = await bcrypt.hash(password, salt);
+    const avatarLocalPath = profilePic;
+
+    const avatar = await uploadOnCloudinary(avatarLocalPath);
+    console.log(avatar);
 
     const newUser = new User({
       name,
       username,
-      password: hashedPassword,
-      member,
+      password,
+      email,
+      profilePic: avatar,
+      standard,
+      school,
     });
 
     if (newUser) {
+      // Generate JWT token here
       generateTokenAndSetCookie(newUser._id, res);
       await newUser.save();
 
       res.status(201).json({
         _id: newUser._id,
-        name: newUser.name,
+        fullName: newUser.name,
         username: newUser.username,
-        member: newUser.member,
+        profilePic: newUser.profilePic,
       });
     } else {
-      res.status(400).json({ message: "Invalid user data" });
+      res.status(400).json({ error: "Invalid user data" });
     }
   } catch (error) {
-    console.log("Error in signup controller", error.message);
+    console.log("Error in signup controller", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
-};
+});
 
-export const loginUser = async (req, res) => {
+export const loginUser = asyncHandler(async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, email, password } = req.body;
+    const user = await User.findOne({ username, email });
+    // const isPasswordCorrect = await bcrypt.compare(
+    //   password,
+    //   user?.password || ""
+    // );
 
-    const user = await User.findOne({ username });
-
-    if (!user) {
-      return res.status(400).json({ message: "Invalid Username" });
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      res.status(400).json({ message: "Invalid Password" });
+    if (!user || !password) {
+      return res.status(400).json({ error: "Invalid username or password" });
     }
 
     generateTokenAndSetCookie(user._id, res);
+
     res.status(200).json({
       _id: user._id,
-      name: user.name,
+      fullName: user.fullName,
       username: user.username,
-      member: user.member,
+      profilePic: user.profilePic,
     });
   } catch (error) {
     console.log("Error in login controller", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
-};
+});
 
-export const logoutUser = async (req, res) => {
+export const logoutUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", { maxAge: 0 });
-  res.status(200).json("Logged Out Successfully");
-};
+  res.status(200).json(new ApiResponse(200, "Logged Out Successfully"));
+});
