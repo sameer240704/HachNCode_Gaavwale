@@ -6,13 +6,12 @@ const Dashboard = () => {
   const { expanded } = useSidebarState();
   return (
     <div>
-<<<<<<< HEAD
       <h1 className="absolute text-white text-3xl font-semibold mt-20 right-20">
         Dashboard
       </h1>
-=======
-      <h1 className="absolute text-white text-3xl font-semibold mt-20 right-20">Dashboard</h1>
->>>>>>> d415edf9994fa38474822fb85728629c6c2cb61d
+      <h1 className="absolute text-white text-3xl font-semibold mt-20 right-20">
+        Dashboard
+      </h1>
       <div
         className="absolute top-0"
         style={{
