@@ -1,12 +1,16 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Dashboard, Homepage, Login, SignUp, Music, LeaderBoard} from "./pages";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Dashboard, Homepage, Login, SignUp, Music } from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
-``;
 import "./App.css";
 import Drums from "./components/Music/Drums";
+import { useAuthContext } from "./context/AuthContext";
 
 function App() {
+  const { authUser } = useAuthContext();
   return (
     <SidebarStateProvider>
       <BrowserRouter>
@@ -21,8 +25,8 @@ function App() {
               </>
             }
           />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={authUser ? <Navigate to="/dashboard" /> : <Login />} />
+          <Route path="/signup" element={authUser ? <Navigate to="/dashboard" /> : <SignUp />} />
           <Route
             path="/leaderboard"
             element={

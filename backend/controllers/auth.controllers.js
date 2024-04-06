@@ -42,7 +42,9 @@ export const registerUser = asyncHandler(async (req, res, next) => {
       username,
       password,
       email,
-      profilePic: avatar,
+      profilePic: avatar
+        ? avatar
+        : "https://res.cloudinary.com/gaavwale/image/upload/v1712414241/public/szwigkyzs9xvoagviu8t.png",
       standard,
       school,
     });
@@ -77,6 +79,10 @@ export const loginUser = asyncHandler(async (req, res) => {
     // );
 
     if (!user || !password) {
+      return res.status(400).json({ error: "Invalid username or password" });
+    }
+
+    if (user.password !== password) {
       return res.status(400).json({ error: "Invalid username or password" });
     }
 
