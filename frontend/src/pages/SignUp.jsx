@@ -4,8 +4,12 @@ import useSignup from "../hooks/useSignup";
 
 const SignUp = () => {
 	const [inputs, setInputs] = useState({
-		fullName: "",
+		name: "",
 		username: "",
+		email: "",
+		standard: "",
+		school: "",
+		Profile: "",
 		password: "",
 		confirmPassword: "",
 		gender: "",
@@ -38,7 +42,7 @@ const SignUp = () => {
 							type='text'
 							placeholder='John Doe'
 							className='w-full input input-bordered  h-10 bg-gray-600 text-green-300'
-							value={inputs.fullName}
+							value={inputs.name}
 							onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
 						/>
 					</div>
@@ -53,6 +57,45 @@ const SignUp = () => {
 							className='w-full input input-bordered h-10 bg-gray-600 text-green-300'
 							value={inputs.username}
 							onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
+						/>
+					</div>
+
+					<div>
+						<label className='label p-2 '>
+							<span className='text-base label-text text-black'>Email</span>
+						</label>
+						<input
+							type='text'
+							placeholder='johndoe@gmail.com'
+							className='w-full input input-bordered h-10 bg-gray-600 text-green-300'
+							value={inputs.email}
+							onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+						/>
+					</div>
+
+					<div>
+						<label className='label p-2 '>
+							<span className='text-base label-text text-black'>Standard</span>
+						</label>
+						<input
+							type='text'
+							placeholder='1'
+							className='w-full input input-bordered h-10 bg-gray-600 text-green-300'
+							value={inputs.standard}
+							onChange={(e) => setInputs({ ...inputs, standard: e.target.value })}
+						/>
+					</div>
+
+					<div>
+						<label className='label p-2 '>
+							<span className='text-base label-text text-black'>School/College</span>
+						</label>
+						<input
+							type='text'
+							placeholder='School/College'
+							className='w-full input input-bordered h-10 bg-gray-600 text-green-300'
+							value={inputs.school}
+							onChange={(e) => setInputs({ ...inputs, school: e.target.value })}
 						/>
 					</div>
 
