@@ -14,12 +14,16 @@ export default function Sidebar() {
   return (
     <aside className="h-screen fixed z-10">
       <nav
-        className="h-full flex flex-col bg-sky-500 border-r shadow-lg text-white"
+        className="h-full flex flex-col bg-black shadow-lg text-white"
         style={{ width: expanded ? "20vw" : "4vw" }}
       >
         <div className="p-4 pb-2 flex justify-between items-center">
-          <a className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"
-            }`} href="#">
+
+          <a
+            className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"
+              }`}
+            href="#"
+          >
             Edutainment
           </a>
           {/* <img
@@ -58,13 +62,12 @@ export default function Sidebar() {
             <div className="leading-4">
               <h4 className="font-semibold text-gray-800">{authUser.username}</h4>
               <span className="text-xs text-gray-800">{authUser.email}</span>
-            </div>
+            </div >
             <FiMoreVertical size={20} />
-          </div>
-        </div>
-      </nav>
-    </aside>
-
+          </div >
+        </div >
+      </nav >
+    </aside >
   );
 }
 
