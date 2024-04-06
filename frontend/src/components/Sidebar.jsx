@@ -9,17 +9,20 @@ export default function Sidebar() {
   const { expanded, setExpanded } = useSidebarState();
 
   return (
-      <aside className="h-screen fixed z-10">
+    <aside className="h-screen fixed z-10">
       <nav
-        className="h-full flex flex-col bg-white shadow-lg text-white"
+        className="h-full flex flex-col bg-black shadow-lg text-white"
         style={{ width: expanded ? "20vw" : "4vw" }}
       >
         <div className="p-4 pb-2 flex justify-between items-center">
-          <a className={`overflow-hidden transition-all ${
+          <a
+            className={`overflow-hidden transition-all ${
               expanded ? "w-32" : "w-0"
-            }`} href="#">
-          Edutainment
-         </a>
+            }`}
+            href="#"
+          >
+            Edutainment
+          </a>
           {/* <img
             src="https://img.logoipsum.com/243.svg"
             className={`overflow-hidden transition-all ${
@@ -62,7 +65,6 @@ export default function Sidebar() {
         </div>
       </nav>
     </aside>
-    
   );
 }
 
