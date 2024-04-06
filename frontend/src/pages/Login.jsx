@@ -1,7 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useLogin from "../hooks/useLogin.js";
 
 const Login = () => {
+    const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+
+	const { loading, login } = useLogin();
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		await login(username, password);
+	};
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto z-50">
       <div className="w-full p-6 rounded-lg shadow-md bg-red-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">

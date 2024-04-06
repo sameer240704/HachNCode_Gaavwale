@@ -11,7 +11,7 @@ export default function Sidebar() {
   return (
       <aside className="h-screen fixed z-10">
       <nav
-        className="h-full flex flex-col bg-[#F8C365] border-r shadow-lg text-white"
+        className="h-full flex flex-col bg-sky-500 border-r shadow-lg text-white"
         style={{ width: expanded ? "20vw" : "4vw" }}
       >
         <div className="p-4 pb-2 flex justify-between items-center">
