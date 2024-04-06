@@ -1,5 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
+import multer from "multer";
 import cors from "cors";
 
 const app = express();

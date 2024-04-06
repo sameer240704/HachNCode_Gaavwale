@@ -20,7 +20,32 @@ const userSchema = new Schema(
     profilePic: {
       type: String,
       default:
-        "https://res.cloudinary.com/dkkgmzpqd/image/upload/v1624426478/ecommerce/avatars/avatar-1_ayf4uq.png",
+        "https://res.cloudinary.com/gaavwale/image/upload/v1712414241/public/szwigkyzs9xvoagviu8t.png",
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    course: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Course",
+      },
+    ],
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
+    standard: {
+      type: Number,
+      required: true,
+    },
+    school: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
