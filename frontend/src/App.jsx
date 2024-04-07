@@ -7,6 +7,10 @@ import {
   Music,
   LeaderBoard,
   Courses,
+  Photogallery
+  Whiteboard,
+  OnlineWhiteboard,
+  WhiteboardScreen,
 } from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
@@ -50,11 +54,47 @@ function App() {
             }
           />
           <Route
+            path="/whiteboard/online"
+            element={
+              <>
+                <Sidebar />
+                <OnlineWhiteboard />
+              </>
+            }
+          />
+          <Route
+            path="/whiteboard/offline"
+            element={
+              <>
+                <Sidebar />
+                <Whiteboard />
+              </>
+            }
+          />
+          <Route
+            path="/whiteboard"
+            element={
+              <>
+                <Sidebar />
+                <WhiteboardScreen />
+              </>
+            }
+          />
+          <Route
             path="/courses"
             element={
               <>
                 <Sidebar />
                 <Courses />
+              </>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <>
+                <Sidebar />
+                <Photogallery />
               </>
             }
           />
