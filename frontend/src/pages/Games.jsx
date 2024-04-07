@@ -2,12 +2,12 @@ import React from "react";
 import { useSidebarState } from "../hooks/useSidebarState";
 import { BentoCourseDemo } from "../components/BentoCourses.tsx";
 
-const Courses = () => {
+const Games = () => {
   const { expanded } = useSidebarState();
   return (
     <div>
       <h1 className="absolute text-white text-3xl font-semibold mt-20 right-20">
-        My Courses
+        Courses
       </h1>
 
       <div
@@ -22,4 +22,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Games;
