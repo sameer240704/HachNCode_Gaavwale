@@ -24,16 +24,12 @@ function createData(name, score) {
 }
 
 const rows = [
-  createData('Player 1', 100),
-  createData('Player 2', 80),
-  createData('Player 3', 90),
-  createData('Player 4', 70),
-  createData('Player 5', 85),
-  createData('Player 6', 75),
-  createData('Player 7', 95),
-  createData('Player 8', 65),
-  createData('Player 9', 90),
-  createData('Player 10', 80),
+  createData('Met', 100),
+  createData('Sameer', 90),
+  createData('Parth', 85),
+  createData('Aditi', 75),
+  createData('Ramesh', 70),
+  createData('Saura', 65),
 ];
 
 export default function StickyHeadTable() {

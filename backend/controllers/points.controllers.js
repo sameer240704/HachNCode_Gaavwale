@@ -27,7 +27,7 @@ export const updatePoints = async (req, res) => {
 export const getPoints = async (req, res) => {
   try {
     // Find the user by userId
-    const user = await User.find();
+    const user = await User.find().sort({ points: -1 });
     console.log(user);
 
     if (!user) {

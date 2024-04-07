@@ -30,7 +30,9 @@ app.use(cookieParser());
 //Routes
 import authRoutes from "./routes/auth.routes.js";
 import pointsRoutes from "./routes/points.routes.js";
+import postsRoutes from "./routes/posts.routes.js";
 app.use("/api/auth", authRoutes);
 app.use("/api/points", pointsRoutes);
+app.use("/api/posts", postsRoutes);
 
 export { app };

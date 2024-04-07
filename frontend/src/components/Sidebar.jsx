@@ -2,24 +2,29 @@ import { sidebarData } from "../data/sidebarData";
 import { FiMoreVertical } from "react-icons/fi";
 import { LuChevronLast, LuChevronFirst } from "react-icons/lu";
 import { useSidebarState } from "../hooks/useSidebarState";
+import { useAuthContext } from "../context/AuthContext";
+import { TbLogout2 } from "react-icons/tb";
+import useLogout from "../hooks/useLogout";
 
 // const SidebarContext = createContext();
 
 export default function Sidebar() {
+  const { loading, logout } = useLogout()
+  const { authUser } = useAuthContext();
+  console.log(authUser);
   const { expanded, setExpanded } = useSidebarState();
 
   return (
-      <aside className="h-screen fixed z-10">
+    <aside className="h-screen fixed z-10">
       <nav
         className="h-full flex flex-col bg-black shadow-lg text-white"
         style={{ width: expanded ? "20vw" : "4vw" }}
       >
         <div className="p-4 pb-2 flex justify-between items-center">
-          <a className={`overflow-hidden transition-all ${
-              expanded ? "w-32" : "w-0"
+          <a className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"
             }`} href="#">
-          Artify
-         </a>
+            Artify
+          </a>
           {/* <img
             src="https://img.logoipsum.com/243.svg"
             className={`overflow-hidden transition-all ${
@@ -43,7 +48,7 @@ export default function Sidebar() {
 
         <div className="border-t flex p-3">
           <img
-            src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
+            src={authUser.profilePic || "https://res.cloudinary.com/gaavwale/image/upload/v1712414241/public/szwigkyzs9xvoagviu8t.png"}
             alt=""
             className="w-10 h-10 rounded-md"
           />
@@ -54,15 +59,21 @@ export default function Sidebar() {
           `}
           >
             <div className="leading-4">
-              <h4 className="font-semibold text-white">John Doe</h4>
-              <span className="text-xs text-white">johndoe@gmail.com</span>
+              <h4 className="font-semibold text-white">{authUser.username}</h4>
             </div>
-            <FiMoreVertical size={20} />
+            <div className='mt-auto'>
+              {!loading ? (
+                <TbLogout2 className="w-7 h-7 cursor-pointer text-white" onClick={logout} />
+              ) : (
+                <span className="loading loading-spinner"></span>
+              )
+              }
+            </div>
           </div>
         </div>
       </nav>
     </aside>
-    
+
   );
 }
 
@@ -83,9 +94,8 @@ export function SidebarItem({ item }) {
       <a href={item.links} className="flex items-center">
         <Icon />
         <span
-          className={`overflow-hidden transition-all ${
-            expanded ? "w-52 ml-3" : "w-0"
-          }`}
+          className={`overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"
+            }`}
         >
           {item.name}
         </span>
