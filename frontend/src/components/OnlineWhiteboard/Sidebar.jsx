@@ -21,16 +21,9 @@ const Sidebar = ({ users, user, socket }) => {
   // The render method returns the JSX that should be rendered by this component.
   // It includes a "Users" button, a sidebar with a "Close" button, and a list of users.
   return (
-    <>
-      <button
-        className="btn btn-dark btn-sm"
-        onClick={openSideBar}
-        style={{ position: "absolute", top: "1%", left: ".5%" }}
-      >
-        Users
-      </button>
+    <div className="mt-0">
       <div
-        className="position-fixed pt-2 h-100 bg-dark"
+        className="position-fixed h-100 bg-dark"
         ref={sideBarRef}
         style={{
           width: "150px",
@@ -39,19 +32,16 @@ const Sidebar = ({ users, user, socket }) => {
           zIndex: "9999",
         }}
       >
-        <button className="" onClick={closeSideBar}>
-          <CgClose className="text-red-500 ml-1 h-5 w-5" />
-        </button>
         <div className="w-100">
           {users.map((usr, index) => (
-            <p key={index} className="text-white text-center py-2">
+            <p key={index} className="text-center py-2">
               {usr.username}
               {usr.id === socket.id && " - (You)"}
             </p>
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

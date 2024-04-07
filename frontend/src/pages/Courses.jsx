@@ -6,8 +6,9 @@ const Courses = () => {
   const { expanded } = useSidebarState();
   return (
     <div>
-
-      <h1 className="absolute text-white text-3xl font-semibold mt-20 right-20">Courses</h1>
+      <h1 className="absolute text-white text-3xl font-semibold mt-20 right-20">
+        My Courses
+      </h1>
 
       <div
         className="absolute top-0"

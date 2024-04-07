@@ -33,7 +33,7 @@ const ClientRoom = ({ userNo, socket, setUsers, setUserNo }) => {
   // The render method returns the JSX that should be rendered by this component.
   // It includes a heading displaying the number of online users and an image element that will display the canvas image.
   return (
-    <div className="container-fluid">
+    <div className="">
       <div className="row pb-2">
         <h1 className="display-5 pt-4 pb-3 text-center">
           Users Online:{userNo}

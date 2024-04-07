@@ -46,29 +46,31 @@ const JoinCreateRoom = ({ uuid, setUser, setRoomJoined }) => {
   };
 
   return (
-    <div className="container">
+    <div className="">
       <div className="row">
         <div className="col-md-12">
-          <h1 className="text-center my-5 text-7xl">Student Whiteboard</h1>
+          <h1 className="text-center text-7xl">Student Whiteboard</h1>
         </div>
       </div>
       <div className="row mx-5 mt-5">
         <div className="col-md-5 p-5 border mx-auto rounded-3xl shadow-black shadow-sm">
-          <h1 className="text-center text-blue-600 mb-5 ">Create Room</h1>
+          <h1 className="text-center text-yellow-200 mb-5 text-2xl">
+            Create Room
+          </h1>
           <form onSubmit={handleCreateSubmit}>
             <div className="my-2">
               <input
                 type="text"
                 placeholder="Username"
-                className="form-control px-3 py-2 text-black text-lg"
+                className="w-full bg-transparent px-5 py-3 text-white text-lg border-2 rounded-xl mb-1"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div className="input-group my-2 border align-items-center">
+            <div className="my-2 border-2 align-items-center rounded-xl">
               <input
                 type="text"
-                className="form-control border-0 outline-0"
+                className="w-full bg-transparent px-5 py-3"
                 value={roomId}
                 readOnly={true}
                 style={{
@@ -79,7 +81,7 @@ const JoinCreateRoom = ({ uuid, setUser, setRoomJoined }) => {
               />
               <div className="input-group-append">
                 <button
-                  className="btn btn-outline-primary  border-0 btn-sm"
+                  className="bg-slate-600 opacity-50 ml-5 mb-5 px-5 py-2 rounded-xl active:scale-95 hover:opacity-100"
                   type="button"
                   onClick={() => setRoomId(uuid())}
                 >
@@ -91,7 +93,7 @@ const JoinCreateRoom = ({ uuid, setUser, setRoomJoined }) => {
                   onCopy={() => toast.success("Room Id Copied To Clipboard!")}
                 >
                   <button
-                    className="btn btn-outline-dark border-0 btn-sm"
+                    className="bg-orange-600 opacity-50 ml-5 mb-5 px-5 py-2 rounded-xl active:scale-95 hover:opacity-100"
                     type="button"
                   >
                     Copy
@@ -100,20 +102,25 @@ const JoinCreateRoom = ({ uuid, setUser, setRoomJoined }) => {
               </div>
             </div>
             <div className="form-group mt-5">
-              <button type="submit" className="form-control btn btn-dark">
+              <button
+                type="submit"
+                className="bg-slate-700 opacity-50 px-5 py-2 rounded-xl active:scale-95 hover:opacity-100"
+              >
                 Create Room
               </button>
             </div>
           </form>
         </div>
-        <div className="col-md-5 p-5 border mx-auto rounded-3xl shadow-black shadow-sm">
-          <h1 className="text-center text-primary mb-5">Join Room</h1>
+        <div className="col-md-5 p-5 border mx-auto rounded-3xl shadow-black shadow-sm mt-3">
+          <h1 className="text-center text-yellow-200 mb-5 text-2xl">
+            Join Room
+          </h1>
           <form onSubmit={handleJoinSubmit}>
             <div className="form-group my-2">
               <input
                 type="text"
                 placeholder="Name"
-                className="form-control"
+                className="w-full bg-transparent px-5 py-3 text-white text-lg border-2 rounded-xl mb-1"
                 value={joinName}
                 onChange={(e) => setJoinName(e.target.value)}
               />
@@ -121,7 +128,7 @@ const JoinCreateRoom = ({ uuid, setUser, setRoomJoined }) => {
             <div className="form-group my-2">
               <input
                 type="text"
-                className="form-control outline-0"
+                className="w-full bg-transparent px-5 py-3 text-white text-lg border-2 rounded-xl mb-2"
                 value={joinRoomId}
                 onChange={(e) => setJoinRoomId(e.target.value)}
                 placeholder="Room Id"
@@ -131,7 +138,10 @@ const JoinCreateRoom = ({ uuid, setUser, setRoomJoined }) => {
               />
             </div>
             <div className="form-group mt-5">
-              <button type="submit" className="form-control btn btn-dark">
+              <button
+                type="submit"
+                className="bg-slate-700 opacity-50 px-5 py-2 rounded-xl active:scale-95 hover:opacity-100"
+              >
                 Join Room
               </button>
             </div>
