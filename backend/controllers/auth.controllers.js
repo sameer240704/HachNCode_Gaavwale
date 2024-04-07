@@ -7,6 +7,28 @@ import User from "../models/user.models.js";
 import bcrypt from "bcryptjs";
 import generateTokenAndSetCookie from "../utils/generateToken.js";
 
+const newRandomPic = () => {
+  const pics = [
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p1.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p2.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p3.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p4.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p5.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p6.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p7.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p8.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p9.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p10.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p11.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p12.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p13.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p14.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p15.jpg",
+    "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/p16.jpg",
+  ];
+  return pics[Math.floor(Math.random() * pics.length)];
+};
+
 export const registerUser = asyncHandler(async (req, res, next) => {
   try {
     const {
@@ -34,8 +56,9 @@ export const registerUser = asyncHandler(async (req, res, next) => {
     // const salt = await bcrypt.genSalt(10);
     // const hashedPassword = await bcrypt.hash(password, salt);
     console.log(profilePic);
-
-    const uploadedImage = await cloudinary.uploader.upload(profilePic);
+    const newPic = newRandomPic();
+    console.log(newPic);
+    const uploadedImage = await cloudinary.uploader.upload(newPic);
 
     // res.status(200).json({
     //   success: true,
