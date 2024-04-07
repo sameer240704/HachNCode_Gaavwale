@@ -7,7 +7,7 @@ import {
   Music,
   LeaderBoard,
   Courses,
-  Photogallery
+  Photogallery,
   Whiteboard,
   OnlineWhiteboard,
   WhiteboardScreen,
@@ -106,6 +106,7 @@ function App() {
             path="/signup"
             element={authUser ? <Navigate to="/dashboard" /> : <SignUp />}
           />
+          <Route path="/" element={!authUser ? <Homepage /> : <Navigate to='/' />} />
           <Route
             path="/music/drums"
             element={

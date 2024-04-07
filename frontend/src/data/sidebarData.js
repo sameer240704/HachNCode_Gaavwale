@@ -1,6 +1,11 @@
 import { MdLeaderboard, MdDashboard } from "react-icons/md";
-import { FaChartArea, FaPhotoVideo, FaClipboard, FaImages } from "react-icons/fa";
-import { FaChartArea, FaPhotoVideo, FaChalkboardTeacher } from "react-icons/fa";
+import {
+  FaChartArea,
+  FaPhotoVideo,
+  FaClipboard,
+  FaImages,
+} from "react-icons/fa";
+import { FaChalkboardTeacher } from "react-icons/fa";
 import { IoPeopleSharp, IoMusicalNotes } from "react-icons/io5";
 
 export const sidebarData = [

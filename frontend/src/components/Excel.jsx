@@ -93,31 +93,31 @@ const Excel = () => {
                 <button className="absolute right-20 top-[220px] rounded-lg w-52 btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-orange-300 border-none px-10 py-3" onClick={downloadSheet}>Download Sheet</button>
             </div>
             <div className='w-full h-full flex justify-between items-center'>
-                
-            <div className="p-4 w-full">
-                <h1 className="text-center py-4 text-2xl">Data</h1>
-                <table className="table-auto w-full">
-                    <thead>
-                        <tr>
-                            <th className="border p-2">Name</th>
-                            <th className="border p-2">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {inputarr.map((item, index) => (
-                            <tr key={index}>
-                                <td className="border p-2">{item.row1}</td>
-                                <td className="border p-2">{item.row2}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
 
-                
+                <div className="p-4 w-full">
+                    <h1 className="text-center py-4 text-2xl">Data</h1>
+                    <table className="table-auto w-full">
+                        <thead>
+                            <tr>
+                                <th className="border p-2">Name</th>
+                                <th className="border p-2">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {inputarr.map((item, index) => (
+                                <tr key={index}>
+                                    <td className="border p-2">{item.row1}</td>
+                                    <td className="border p-2">{item.row2}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+
 
                 {modalState && (
-                    <div className="modal bg-white h-screen w-screen fixed inset-0 bg-opacity-70 backdrop-blur-sm z-50 flex justify-center items-center">
+                    <div className="modal bg-slate-800 h-screen w-screen fixed inset-0 bg-opacity-70 backdrop-blur-sm z-50 flex justify-center items-center">
                         <div className='size-4/5'>
                             <button className="absolute top-4 left-[95%]" onClick={closeModal}>
                                 <IoCloseSharp className="h-10 w-10 text-black hover:text-red-700" />

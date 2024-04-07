@@ -4,11 +4,13 @@
   src: url("./assets/font/CentraNo2-Bold.ttf");
   font-weight: 700;
 }
+
 @font-face {
   font-family: Centra;
   src: url("./assets/font/CentraNo2-Medium.ttf");
   font-weight: 500;
 }
+
 @font-face {
   font-family: Centra;
   src: url("./assets/font/CentraNo2-Book.ttf");
@@ -79,7 +81,8 @@ select:focus {
 
 /* Logo Intro */
 .logo-container {
-  width: 200px; /* Adjust size as needed */
+  width: 200px;
+  /* Adjust size as needed */
   height: 200px;
   display: flex;
   justify-content: center;
@@ -96,6 +99,7 @@ select:focus {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -135,7 +139,7 @@ select:focus {
   gap: 2px;
 }
 
-.nav-items > li:not(:nth-child(4)) {
+.nav-items>li:not(:nth-child(4)) {
   margin-right: 40px;
 }
 
@@ -185,27 +189,11 @@ select:focus {
 
 .nav-icon:hover {
   color: #fff;
-  filter: brightness(100%) saturate(100%) invert(0%) sepia(50%) saturate(98%)
-    hue-rotate(346deg) brightness(95%) contrast(86%);
+  filter: brightness(100%) saturate(100%) invert(0%) sepia(50%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
 }
 
 .ham-icon {
   display: none;
-}
-
-.nav-items-button-log {
-  font-weight: 700;
-  color: #fff;
-  background-color: #121212;
-  padding: 14px 48px;
-  font-size: 18px;
-  margin-top: 10px;
-  margin-right: 10px;
-  border-radius: 0;
-  position: relative;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-  border-radius: 30px;
 }
 
 .nav-items-button-log:hover {
@@ -215,7 +203,7 @@ select:focus {
 
 .nav-items-button {
   font-weight: 700;
-  background-color: #121212;
+  background-color: #f8c365;
   color: #fff;
   padding: 14px 48px;
   font-size: 18px;
@@ -233,13 +221,16 @@ select:focus {
   position: relative;
   border-radius: 30px;
 }
-.nav-items-button:hover {
-  color: #121212;
+
+.nav-items-button span:hover {
+  color: #fff;
   border-radius: 30px;
 }
+
 .nav-items-button::before {
   content: "";
-  background: #f8c365;
+  background: #121212;
+  color: #fff;
   width: 0;
   height: 100%;
   position: absolute;
@@ -249,6 +240,7 @@ select:focus {
   transition: 0.3s ease-in-out;
   border-radius: 30px;
 }
+
 .nav-items-button:hover::before {
   width: 100%;
   color: #f8c365;
@@ -256,24 +248,29 @@ select:focus {
 }
 
 @media (max-width: 1000px) {
-  .nav-items > li:not(:nth-child(4)) {
+  .nav-items>li:not(:nth-child(4)) {
     margin-right: 20px;
   }
+
   .nav-logo {
     font-size: 1.2rem;
     margin-left: 10px;
   }
+
   .nav-ele {
     display: none;
   }
+
   .nav-items-button {
     font-size: 1rem;
     padding: 10px 25px;
     margin-top: 17px;
   }
+
   .ham-icon {
     display: flex;
   }
+
   .contact-img {
     display: none;
   }
@@ -283,6 +280,7 @@ select:focus {
   .nav-items-button {
     display: none;
   }
+
   .ham-icon {
     display: flex;
   }
@@ -404,10 +402,12 @@ select:focus {
 .contact {
   margin-left: 10rem;
 }
+
 .contact img {
   width: 92%;
   margin-top: 100px;
 }
+
 .contact h2 {
   font-size: 45px;
   color: #121212;
@@ -415,6 +415,7 @@ select:focus {
   margin-bottom: 30px;
   margin-top: 100px;
 }
+
 .contact form input,
 .contact form textarea {
   width: 100%;
@@ -429,22 +430,26 @@ select:focus {
   letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
 }
+
 .contact form input:focus,
 .contact form textarea:focus {
   background: rgba(255, 255, 255, 1);
   color: #121212;
 }
+
 .contact form input::placeholder,
 .contact form textarea::placeholder {
   font-size: 16px;
   font-weight: 400;
   color: #fff;
 }
+
 .contact form input:focus::placeholder,
 .contact form textarea:focus::placeholder {
   color: #121212;
   opacity: 0.8;
 }
+
 .contact form button {
   font-weight: 700;
   color: #000;
@@ -457,13 +462,16 @@ select:focus {
   transition: 0.3s ease-in-out;
   margin-bottom: 10rem;
 }
+
 .contact form button span {
   z-index: 1;
   position: relative;
 }
+
 .contact form button:hover {
   color: #fff;
 }
+
 .contact form button::before {
   content: "";
   background: #121212;
@@ -475,9 +483,11 @@ select:focus {
   z-index: 0;
   transition: 0.3s ease-in-out;
 }
+
 .contact form button:hover::before {
   width: 100%;
 }
+
 .get-in-touch {
   display: flex;
 }

@@ -298,10 +298,21 @@ const SkeletonFive = () => {
 };
 const items = [
   {
-    title: "White Board",
+    title: "Music Theory Fundamentals",
     description: (
       <span className="text-sm">
-        Canvas for ideas, collaboration, brainstorming, learning, and innovation
+        Beginner Music Course
+      </span>
+    ),
+    header: <SkeletonThree />,
+    className: "md:col-span-1",
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "Introduction to Digital Art",
+    description: (
+      <span className="text-sm">
+        Visual Arts Course
       </span>
     ),
     header: <SkeletonThree />,
@@ -320,10 +331,10 @@ const items = [
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "White Board",
+    title: "Acrylic Painting for Beginners",
     description: (
       <span className="text-sm">
-        Canvas for ideas, collaboration, brainstorming, learning, and innovation
+        Painting Course
       </span>
     ),
     header: <SkeletonThree />,
@@ -331,10 +342,10 @@ const items = [
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "White Board",
+    title: "Storytelling and Creative Writing",
     description: (
       <span className="text-sm">
-        Canvas for ideas, collaboration, brainstorming, learning, and innovation
+        Writing Course
       </span>
     ),
     header: <SkeletonThree />,
@@ -342,21 +353,10 @@ const items = [
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "White Board",
+    title: "Introduction to Web Design",
     description: (
       <span className="text-sm">
-        Canvas for ideas, collaboration, brainstorming, learning, and innovation
-      </span>
-    ),
-    header: <SkeletonThree />,
-    className: "md:col-span-1",
-    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "White Board",
-    description: (
-      <span className="text-sm">
-        Canvas for ideas, collaboration, brainstorming, learning, and innovation
+        Design Course
       </span>
     ),
     header: <SkeletonThree />,
