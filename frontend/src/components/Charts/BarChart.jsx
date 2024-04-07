@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
-import html2canvas from 'html2canvas';
-import { saveAs } from 'file-saver';
 
 const BarChart = ({ inputarr }) => {
     const chartRef = useRef(null);

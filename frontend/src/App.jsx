@@ -2,11 +2,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Dashboard, Homepage, Login, SignUp, Music, LeaderBoard} from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
+
 import "./App.css";
 import Drums from "./components/Music/Drums";
 import MyPiano from "./components/Music/Keyboard";
 
+import { Toaster } from "react-hot-toast";
+import "./App.css";
+import Drums from "./components/Music/Drums";
+import { useAuthContext } from "./context/AuthContext";
+import useAarav from "./hooks/useAarav";
+import DataVisualisation from "./components/DataVisualisation";
+import Excel from "./components/Excel";
+
 function App() {
+  const { authUser } = useAuthContext();
+  useAarav();
   return (
     <SidebarStateProvider>
       <BrowserRouter>
@@ -31,6 +42,15 @@ function App() {
                 <LeaderBoard />
               </>
             }
+            />
+          <Route
+            path="/login"
+            element={authUser ? <Navigate to="/dashboard" /> : <Login />}
+          />
+          <Route
+            path="/signup"
+            element={authUser ? <Navigate to="/dashboard" /> : <SignUp />}
+
           />
           <Route
             path="/music/drums"
@@ -60,7 +80,71 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/visualization"
+            element={
+              <>
+                <Sidebar />
+                <DataVisualisation />
+              </>
+            }
+          />
+          <Route
+            path="/BarChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/LineChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/DoughnutChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/PieChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/BubbleChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/ScatterChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
         </Routes>
+        <Toaster position="top-center" />
       </BrowserRouter>
     </SidebarStateProvider>
   );

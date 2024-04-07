@@ -1,14 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bar } from 'react-chartjs-2';
-import BarChart from '../Charts/BarChart';
-import LineChart from '../Charts/LineChart';
-import DoughnutChart from '../Charts/DoughnutChart';
-import BubbleChart from '../Charts/BubbleChart';
-import PieChart from '../Charts/PieChart';
+import BarChart from '../components/Charts/BarChart';
+import LineChart from '../components/Charts/LineChart';
+import DoughnutChart from '../components/Charts/DoughnutChart';
+import BubbleChart from '../components/Charts/BubbleChart';
+import PieChart from '../components/Charts/PieChart';
 import * as XLSX from 'xlsx';
+import { useSidebarState } from "../hooks/useSidebarState";
 import { IoCloseSharp } from 'react-icons/io5';
-import DataVisualisation from './DataVisualisation';
-import { useNavigate } from 'react-router-dom';
 
 // const Chart = ({ inputarr }) => {
 //     // Process inputarr data to prepare data for the chart
@@ -28,6 +26,7 @@ import { useNavigate } from 'react-router-dom';
 // };
 
 const Excel = () => {
+    const { expanded } = useSidebarState();
     const [inputarr, setInputarr] = useState([]);
     const [chart, setChart] = useState(null);
     const [row, setRow] = useState({ row1: '', row2: '' });
@@ -62,8 +61,14 @@ const Excel = () => {
     const closeModal = () => setModalState(false);
 
     return (
-        <div className=' m-0 bg-gradient-to-br from-indigo-600 to-blue-300 w-screen h-screen flex flex-col justify-start items-center'>
-            <div className='w-auto justify-center items-center rounded-xl bg-slate-100 p-7 flex flex-col'>
+        <div
+            className="absolute top-0 px-10 py-12"
+            style={{
+                left: expanded ? "20vw" : "4vw",
+                width: expanded ? "80vw" : "96vw",
+            }}
+        >
+            <div className='w-auto justify-center items-center rounded-xl p-7 flex flex-col'>
                 <h1 className='text-center font-serif font-thin py-4 text-2xl'>Data Visualisation</h1>
                 <input
                     className='border-2 rounded p-2 mx-2 focus:border-2 focus:border-blue-500 bg-inherit input-bordered w-full max-w-xs'
@@ -85,7 +90,8 @@ const Excel = () => {
                 <br /><br />
                 <button className='p-3 bg-inherit font-serif text-blue-400 hover:text-white text-lg font-semibold btn-ghost btn-outline hover:bg-indigo-400 rounded' onClick={handleSubmit}>Add!</button>
             </div>
-            <div className='w-1/2 h-full flex justify-between items-center'>
+            <div className='w-full h-full flex justify-between items-center'>
+                <button onClick={navigateChart}>Submit</button>
                 <div>
                     <h1 className='text-center font-serif font-thin py-4 text-2xl'>Data</h1>
                     <table className='table-auto w-full'>
@@ -105,7 +111,6 @@ const Excel = () => {
                         </tbody>
                     </table>
                 </div>
-                <button onClick={navigateChart}>Submit</button>
                 <button onClick={downloadSheet}>Download Sheet</button>
 
                 {modalState && (

@@ -1,12 +1,12 @@
 import User from "../models/user.models.js";
-import User from "../models/user.models.js";
 
-const updatePoints = async (req, res) => {
+export const updatePoints = async (req, res) => {
   try {
-    const { userId, points } = req.body;
+    const { username, points } = req.body;
 
+    console.log(username, points);
     // Find the user by userId
-    const user = await User.findById(userId);
+    const user = await User.findOne({ username });
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -20,8 +20,25 @@ const updatePoints = async (req, res) => {
 
     return res.status(200).json({ message: "Points updated successfully" });
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error", error });
   }
 };
 
-export default updatePoints;
+export const getPoints = async (req, res) => {
+  try {
+    // Find the user by userId
+    const user = await User.find();
+    console.log(user);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    return res.status(200).json({
+      username: user.username,
+      points: user.points,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error", error });
+  }
+};

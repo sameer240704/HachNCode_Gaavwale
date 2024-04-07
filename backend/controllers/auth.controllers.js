@@ -1,7 +1,8 @@
 import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { cloudinary } from "../utils/cloudinary.js";
+import upload from "../middleware/multer.middleware.js";
 import User from "../models/user.models.js";
 import bcrypt from "bcryptjs";
 import generateTokenAndSetCookie from "../utils/generateToken.js";
@@ -32,19 +33,24 @@ export const registerUser = asyncHandler(async (req, res, next) => {
     // HASH PASSWORD HERE
     // const salt = await bcrypt.genSalt(10);
     // const hashedPassword = await bcrypt.hash(password, salt);
-    const avatarLocalPath = profilePic;
+    console.log(profilePic);
 
-    const avatar = await uploadOnCloudinary(avatarLocalPath);
-    console.log(avatar);
+    const uploadedImage = await cloudinary.uploader.upload(profilePic);
+
+    // res.status(200).json({
+    //   success: true,
+    //   message: "Uploaded!",
+    //   data: result,
+    // });
+
+    // console.log("Avatar", avatar);
 
     const newUser = new User({
       name,
       username,
       password,
       email,
-      profilePic: avatar
-        ? avatar
-        : "https://res.cloudinary.com/gaavwale/image/upload/v1712414241/public/szwigkyzs9xvoagviu8t.png",
+      profilePic: uploadedImage.secure_url,
       standard,
       school,
     });
