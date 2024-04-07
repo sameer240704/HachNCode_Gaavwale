@@ -68,10 +68,10 @@ const Excel = () => {
                 width: expanded ? "80vw" : "96vw",
             }}
         >
-            <div className='w-auto justify-center items-center rounded-xl p-7 flex flex-col'>
-                <h1 className='text-center font-serif font-thin py-4 text-2xl'>Data Visualisation</h1>
+            <div className='w-auto rounded-xl p-7 flex flex-col'>
+                <h1 className='py-2 text-2xl'>Data Visualisation</h1>
                 <input
-                    className='border-2 rounded p-2 mx-2 focus:border-2 focus:border-blue-500 bg-inherit input-bordered w-full max-w-xs'
+                    className='border-2 rounded p-2 mx-2 mt-4 focus:border-2 focus:border-blue-500 bg-inherit input-bordered w-full max-w-xs'
                     type="text"
                     name="row1"
                     value={row.row1}
@@ -88,36 +88,39 @@ const Excel = () => {
                     placeholder='Value'
                 />
                 <br /><br />
-                <button className='p-3 bg-inherit font-serif text-blue-400 hover:text-white text-lg font-semibold btn-ghost btn-outline hover:bg-indigo-400 rounded' onClick={handleSubmit}>Add!</button>
+                <button className='absolute rounded-lg w-52 top-[100px] right-20 btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-orange-300 border-none px-10 py-3' onClick={handleSubmit}>Add</button>
+                <button className="absolute right-20 top-[160px] rounded-lg w-52 btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-orange-300 border-none px-10 py-3" onClick={navigateChart}>Submit</button>
+                <button className="absolute right-20 top-[220px] rounded-lg w-52 btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-orange-300 border-none px-10 py-3" onClick={downloadSheet}>Download Sheet</button>
             </div>
             <div className='w-full h-full flex justify-between items-center'>
-                <button onClick={navigateChart}>Submit</button>
-                <div>
-                    <h1 className='text-center font-serif font-thin py-4 text-2xl'>Data</h1>
-                    <table className='table-auto w-full'>
-                        <thead>
-                            <tr>
-                                <th className='border p-2'>Name</th>
-                                <th className='border p-2'>Value</th>
+                
+            <div className="p-4 w-full">
+                <h1 className="text-center py-4 text-2xl">Data</h1>
+                <table className="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th className="border p-2">Name</th>
+                            <th className="border p-2">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {inputarr.map((item, index) => (
+                            <tr key={index}>
+                                <td className="border p-2">{item.row1}</td>
+                                <td className="border p-2">{item.row2}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {inputarr.map((item, index) => (
-                                <tr key={index}>
-                                    <td className='border p-2'>{item.row1}</td>
-                                    <td className='border p-2'>{item.row2}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-                <button onClick={downloadSheet}>Download Sheet</button>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
+                
 
                 {modalState && (
                     <div className="modal bg-white h-screen w-screen fixed inset-0 bg-opacity-70 backdrop-blur-sm z-50 flex justify-center items-center">
                         <div className='size-4/5'>
                             <button className="absolute top-4 left-[95%]" onClick={closeModal}>
-                                <IoCloseSharp className="h-10 w-10 text-red-400 hover:text-red-700" />
+                                <IoCloseSharp className="h-10 w-10 text-black hover:text-red-700" />
                             </button>
                             {chart === 'BarChart' && <BarChart inputarr={inputarr ? inputarr : null} />}
                             {chart === 'LineChart' && <LineChart inputarr={inputarr ? inputarr : null} />}

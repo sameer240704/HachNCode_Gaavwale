@@ -6,6 +6,7 @@ import {
   SignUp,
   Music,
   LeaderBoard,
+  Courses,
 } from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
@@ -51,6 +52,15 @@ function App() {
             }
           />
           <Route
+            path="/courses"
+            element={
+              <>
+                <Sidebar />
+                <Courses />
+              </>
+            }
+          />
+          <Route
             path="/login"
             element={authUser ? <Navigate to="/dashboard" /> : <Login />}
           />
@@ -67,6 +77,7 @@ function App() {
               </>
             }
           />
+
           <Route
             path="/music/keyboard"
             element={

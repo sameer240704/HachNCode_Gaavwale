@@ -49,13 +49,10 @@ const MyPiano = () => {
         width: expanded ? "80vw" : "96vw",
       }}
     >
-      <div className="w-full h-2/5">
-        <h1 className="text-4xl mb-10">Piano</h1>
-      </div>
-      <div
-        className="h-2/5 w-full flex justify-center items-center"
-        style={{ marginLeft: expanded ? "100px" : "200px" }}
-      >
+      <div className="h-3/5 w-3/5 flex flex-col">
+        <div className="w-full flex">
+          <h1 className="text-3xl mb-10">Piano</h1>
+        </div>
         <Piano
           noteRange={{ first: firstNote, last: lastNote }}
           // playNote={(midiNumber) => {

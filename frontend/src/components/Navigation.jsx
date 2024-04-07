@@ -1,7 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import LoginIcon from "@mui/icons-material/Login";
 import { Link } from "react-router-dom";
 
 const Navigaton = () => {
@@ -28,7 +26,7 @@ const Navigaton = () => {
 
   return (
     <div className={scrolled ? "nav-container scrolled" : "nav-container"}>
-      <a className="nav-logo" href="#">
+      <a className="nav-logo text-3xl" href="#">
         Artify
       </a>
       <ul className="nav-items">

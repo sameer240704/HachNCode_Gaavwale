@@ -18,7 +18,7 @@ export default function Sidebar() {
           <a className={`overflow-hidden transition-all ${
               expanded ? "w-32" : "w-0"
             }`} href="#">
-          Edutainment
+          Artify
          </a>
           {/* <img
             src="https://img.logoipsum.com/243.svg"

@@ -43,7 +43,7 @@ const Login = () => {
 
             <div>
               <label className="label p-2">
-                <span className="text-base text-black label-text">Email</span>
+                <span className="text-base text-yellow-200 label-text">Email</span>
               </label>
               <input
                 type="text"
@@ -78,15 +78,15 @@ const Login = () => {
 
             <div>
               <button
-                className="btn btn-block btn-sm mt-2 text-gray-800 bg-green-300 hover:text-green-300 border-none"
+                className="rounded-lg btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-orange-300 border-none px-10 py-3"
                 disabled={loading} onClick={handleSubmit}
-              >
+            >
                 {loading ? (
-                  <span className="loading loading-spinner "></span>
+                    <span className="loading loading-spinner"></span>
                 ) : (
-                  "Login"
+                    "Log In"
                 )}
-              </button>
+            </button>
             </div>
           </form >
         </div >
