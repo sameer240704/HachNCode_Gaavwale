@@ -6,3 +6,6 @@ export { default as SignUp } from "./SignUp";
 export { default as LeaderBoard } from "./LeaderBoard";
 export { default as Courses } from "./Courses";
 export { default as Photogallery } from "./Photogallery";
+export { default as Whiteboard } from "./Whiteboard";
+export { default as OnlineWhiteboard } from "./OnlineWhiteboard";
+export { default as WhiteboardScreen } from "./WhiteboardScreen";

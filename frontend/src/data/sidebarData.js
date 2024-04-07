@@ -1,5 +1,6 @@
 import { MdLeaderboard, MdDashboard } from "react-icons/md";
 import { FaChartArea, FaPhotoVideo, FaClipboard, FaImages } from "react-icons/fa";
+import { FaChartArea, FaPhotoVideo, FaChalkboardTeacher } from "react-icons/fa";
 import { IoPeopleSharp, IoMusicalNotes } from "react-icons/io5";
 
 export const sidebarData = [
@@ -12,6 +13,11 @@ export const sidebarData = [
     name: "Leaderboard",
     icon: MdLeaderboard,
     links: "/leaderboard",
+  },
+  {
+    name: "Whiteboard",
+    icon: FaChalkboardTeacher,
+    links: "/whiteboard",
   },
   {
     name: "Games",
