@@ -5,3 +5,4 @@ export { default as Login } from "./Login";
 export { default as SignUp } from "./SignUp";
 export { default as LeaderBoard } from "./LeaderBoard";
 export { default as Courses } from "./Courses";
+export { default as Photogallery } from "./Photogallery";

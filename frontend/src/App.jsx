@@ -7,6 +7,7 @@ import {
   Music,
   LeaderBoard,
   Courses,
+  Photogallery
 } from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
@@ -40,8 +41,6 @@ function App() {
               </>
             }
           />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
           <Route
             path="/leaderboard"
             element={
@@ -57,6 +56,15 @@ function App() {
               <>
                 <Sidebar />
                 <Courses />
+              </>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <>
+                <Sidebar />
+                <Photogallery />
               </>
             }
           />
