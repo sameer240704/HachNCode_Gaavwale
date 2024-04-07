@@ -120,7 +120,7 @@ const Drums = () => {
               id={sound.id}
               url={sound.url}
               keyCode={sound.keyCode}
-              color={sound.color} // Pass color from data array
+              color={sound.color} 
             />
           ))}
         </div>

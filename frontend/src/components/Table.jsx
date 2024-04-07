@@ -50,7 +50,14 @@ export default function StickyHeadTable() {
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+    <Paper
+      sx={{
+        width: '100%',
+        overflow: 'hidden',
+        backgroundColor: '#333',
+        color: '#fff',
+      }}
+    >
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -61,8 +68,10 @@ export default function StickyHeadTable() {
                   align={column.align}
                   style={{
                     minWidth: column.minWidth,
-                    backgroundColor: '#fbb845', 
+                    backgroundColor: '#fbb845',
+                    color: '#fff',
                     fontWeight: 'bold',
+                    fontSize: '1.4rem'
                   }}
                 >
                   {column.label}
@@ -82,14 +91,22 @@ export default function StickyHeadTable() {
                     key={row.name}
                     sx={{
                       '&:hover': {
-                        backgroundColor: '#fbb845', 
+                        backgroundColor: '#444',
                       },
+                      backgroundColor: '#333',
+                      color: '#fff',
                     }}
                   >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          sx={{
+                            color: '#fff',
+                          }}
+                        >
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
@@ -110,6 +127,12 @@ export default function StickyHeadTable() {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        sx={{
+          color: '#fff',
+          '& .MuiTablePagination-selectLabel, .MuiTablePagination-displayedRows': {
+            color: '#fff',
+          },
+        }}
       />
     </Paper>
   );

@@ -14,14 +14,14 @@ const Card2 = () => {
 
   const handleGuitar = (event) => {
     event.preventDefault();
-    navigate("/music/drums");
+    navigate("/music/keyboard");
   };
 
   return (
     <>
       <div>
         <motion.div
-          className="min-h-[300px] bg-slate-900 px-5 py-7 rounded-2xl relative"
+          className="min-h-[360px] bg-gray-800 px-5 py-7 rounded-2xl relative"
           style={{
             x,
             y,
@@ -38,20 +38,21 @@ const Card2 = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ cursor: "grabbing" }}
         >
-          <div className="title text-3xl text-white font-extrabold">
-            <h1>PIANO</h1>
+          <div className="title text-3xl text-white font-bold">
+            <h1>Piano</h1>
           </div>
-          <div className="about text-xl my-7 text-white">
+          <div className="about text-l my-7 text-white">
             <p>
               The Piano Practice Tool Web Component offers pianists a virtual
               space to refine their skills. It boasts a chord library, scale
               generator, metronome, practice tracks, recording, playback, and
-              educational materials for holistic skill enhancement.
+              educational materials for holistic skill enhancement.ashbskjfbk
+              asdfghjklswedrftgyhijok
             </p>
           </div>
           <div className="register">
             <button
-              className="px-2 py-3 text-xl rounded-xl active:scale-90 hover:bg-slate-700"
+              className="px-2 py-3 text-l bg-white text-black rounded-xl active:scale-90 hover:bg-slate-700"
               onClick={handleGuitar}
             >
               Start Tuning

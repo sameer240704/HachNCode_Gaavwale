@@ -21,7 +21,7 @@ const Card3 = () => {
     <>
       <div>
         <motion.div
-          className="min-h-[300px] bg-slate-900 px-5 py-7 rounded-2xl relative mt-24 mb-10"
+          className="min-h-[360px] bg-gray-800 px-5 py-7 rounded-2xl relative mt-24 mb-10"
           style={{
             x,
             y,
@@ -38,10 +38,10 @@ const Card3 = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ cursor: "grabbing" }}
         >
-          <div className="title text-3xl text-white font-extrabold">
-            <h1>DRUMS</h1>
+          <div className="title text-3xl text-white font-bold">
+            <h1>Drums</h1>
           </div>
-          <div className="about text-xl my-7 text-white">
+          <div className="about text-l my-7 text-white">
             <p>
               The Drums Practice Tool Web Component provides drummers a virtual
               platform to hone their skills. Featuring a comprehensive set of
@@ -52,7 +52,7 @@ const Card3 = () => {
           </div>
           <div className="register">
             <button
-              className="px-2 py-3 text-xl rounded-xl active:scale-90 hover:bg-slate-700"
+              className="px-2 py-3 text-l text-black bg-white rounded-xl active:scale-90 hover:bg-slate-700"
               onClick={handleGuitar}
             >
               Start Tuning
