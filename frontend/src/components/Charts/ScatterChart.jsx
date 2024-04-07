@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js/auto'
-import { Bar, Doughnut, Line, Bubble } from 'react-chartjs-2'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import { Scatter } from 'react-chartjs-2';
 
-const BubbleChart = ({ inputarr }) => {
-    ChartJS.register(ArcElement, Tooltip, Legend)
+const ScatterChart = ({ inputarr }) => {
+    const chartRef = useRef(null);
     const [chartData, setChartData] = useState({
         labels: [],
         datasets: [{
-            label: 'Bubble Chart Representation',
+            options: {
+                indexAxis: 'x',
+            },
+            label: 'Scatter Chart Representation',
             data: [],
             backgroundColor: []
         }]
     });
 
     useEffect(() => {
-        // Update chart data whenever inputarr changes
+        console.log("Scatter");
         updateChartData();
     }, [inputarr]);
+
+    useEffect(() => {
+        if (chartRef.current) {
+            captureChart();
+        }
+    }, [chartRef.current]);
 
     const updateChartData = () => {
         // Limit to the latest 5 elements
@@ -27,7 +35,10 @@ const BubbleChart = ({ inputarr }) => {
         setChartData({
             labels: latestData.map(item => item.row1),
             datasets: [{
-                label: 'Bubble Chart Representation',
+                options: {
+                    indexAxis: 'x',
+                },
+                label: 'Scatter Chart Representation',
                 data: latestData.map(item => item.row2),
                 backgroundColor: colors
             }]
@@ -46,9 +57,8 @@ const BubbleChart = ({ inputarr }) => {
 
     return (
         <div className='w-full h-full'>
-            <Bubble data={chartData} />
+            <Scatter data={chartData} />
         </div>
     );
 }
-
-export default BubbleChart
+export default ScatterChart;

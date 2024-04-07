@@ -23,3 +23,22 @@ export const updatePoints = async (req, res) => {
     return res.status(500).json({ message: "Internal server error", error });
   }
 };
+
+export const getPoints = async (req, res) => {
+  try {
+    // Find the user by userId
+    const user = await User.find();
+    console.log(user);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    return res.status(200).json({
+      username: user.username,
+      points: user.points,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error", error });
+  }
+};
