@@ -1,22 +1,31 @@
-import React from "react";
+/* eslint-disable react/no-unknown-property */
+import React, { Suspense } from "react";
 import { useSidebarState } from "../hooks/useSidebarState";
-import { TracingBeam } from "../components/tracing-beam.tsx";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import Scene from "../../public/Scene";
 
 const Photogallery = () => {
   const { expanded } = useSidebarState();
   return (
     <div>
-
-      <h1 className="absolute text-white text-3xl font-semibold mt-20 right-20">Photo Gallery</h1>
-
       <div
         className="absolute top-0"
         style={{
           left: expanded ? "20vw" : "4vw",
           width: expanded ? "80vw" : "96vw",
         }}
-      ></div>
-      <TracingBeam />
+      >
+        <div id="home" className="h-screen flex items-center justify-center">
+          <Canvas className="h-screen">
+            <ambientLight intensity={1} />
+            <OrbitControls enableZoom={false} autoRotate={true} />
+            <Suspense fallback={null}>
+              <Scene scale={[120.5, 120.5, 120.5]} position={[150, 150, 150]} />
+            </Suspense>
+          </Canvas>
+        </div>
+      </div>
     </div>
   );
 };

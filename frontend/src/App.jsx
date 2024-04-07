@@ -7,7 +7,7 @@ import {
   Music,
   LeaderBoard,
   Courses,
-  Photogallery
+  Photogallery,
   Whiteboard,
   OnlineWhiteboard,
   WhiteboardScreen,

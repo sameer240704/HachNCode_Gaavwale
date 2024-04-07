@@ -71,7 +71,7 @@ const Room = ({ userNo, socket, setUsers, setUserNo }) => {
           {userNo}
         </h6>
       </div>
-      <div className="row justify-content-center align-items-center text-center py-2">
+      <div className="flex justify-center items-center gap-10">
         <div className="col-md-2">
           <div className="color-picker d-flex align-items-center justify-content-center">
             Color Picker : &nbsp;
@@ -82,7 +82,7 @@ const Room = ({ userNo, socket, setUsers, setUserNo }) => {
             />
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="flex justify-center gap-10 my-2">
           <div className="form-check form-check-inline">
             <input
               className="form-check-input"
@@ -133,7 +133,7 @@ const Room = ({ userNo, socket, setUsers, setUserNo }) => {
         <div className="col-md-2">
           <button
             type="button"
-            className="btn btn-outline-primary"
+            className="bg-slate-500 p-2 rounded-3xl opacity-50 hover:opacity-100"
             disabled={elements.length === 0}
             onClick={() => undo()}
           >
@@ -142,7 +142,7 @@ const Room = ({ userNo, socket, setUsers, setUserNo }) => {
           &nbsp;&nbsp;
           <button
             type="button"
-            className="btn btn-outline-primary ml-1"
+            className="bg-slate-500 p-2 rounded-3xl opacity-50 hover:opacity-100"
             disabled={history.length < 1}
             onClick={() => redo()}
           >
@@ -153,8 +153,8 @@ const Room = ({ userNo, socket, setUsers, setUserNo }) => {
           <div className="color-picker d-flex align-items-center justify-content-center">
             <input
               type="button"
-              className="btn btn-danger"
-              value="clear canvas"
+              className="px-3 py-2 bg-red-600 opacity-50 rounded-lg hover:opacity-100 active:scale-95"
+              value="Clear Canvas"
               onClick={clearCanvas}
             />
           </div>
