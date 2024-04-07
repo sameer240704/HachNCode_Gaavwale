@@ -29,7 +29,7 @@ const Navigaton = () => {
   return (
     <div className={scrolled ? "nav-container scrolled" : "nav-container"}>
       <a className="nav-logo" href="#">
-        Edutainment
+        Artify
       </a>
       <ul className="nav-items">
         <li className="nav-ele">

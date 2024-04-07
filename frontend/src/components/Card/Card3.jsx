@@ -21,7 +21,7 @@ const Card3 = () => {
     <>
       <div>
         <motion.div
-          className="min-h-[360px] bg-gray-800 px-5 py-7 rounded-2xl relative mt-24 mb-10"
+          className="min-h-[360px] bg-gray-800 px-5 py-7 rounded-2xl relative mb-10"
           style={{
             x,
             y,
@@ -41,13 +41,12 @@ const Card3 = () => {
           <div className="title text-3xl text-white font-bold">
             <h1>Drums</h1>
           </div>
-          <div className="about text-l my-7 text-white">
+          <div className="about text-lg my-7 text-white">
             <p>
               The Drums Practice Tool Web Component provides drummers a virtual
               platform to hone their skills. Featuring a comprehensive set of
-              tools including a rhythm library, beat generator, metronome,
-              practice tracks, recording, playback, and educational resources
-              for holistic skill development.
+              tools including a metronome, practice tracks, playback, and
+              educational resources for holistic skill development.
             </p>
           </div>
           <div className="register">
@@ -61,8 +60,8 @@ const Card3 = () => {
           <motion.div
             className="absolute"
             style={{
-              top: expanded ? "300px" : "250px",
-              right: expanded ? "-140px" : "-150px",
+              top: expanded ? "250px" : "250px",
+              right: expanded ? "-150px" : "-150px",
             }}
             animate={{ x, y, rotateX, rotateY, z: 1000000 }}
           >

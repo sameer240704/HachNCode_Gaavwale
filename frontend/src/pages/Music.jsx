@@ -1,6 +1,5 @@
 import React from "react";
 import { useSidebarState } from "../hooks/useSidebarState";
-import Card1 from "../components/Card/Card1";
 import Card2 from "../components/Card/Card2";
 import Card3 from "../components/Card/Card3";
 
@@ -15,12 +14,11 @@ const Music = () => {
       }}
     >
       <div>
-        <h1 className="text-4xl mb-10 grid grid-cols-3">Instruments</h1>
+        <h1 className="text-4xl mb-10">Instruments</h1>
         <div className="flex gap-48">
-          <Card1 />
           <Card2 />
+          <Card3 />
         </div>
-        <Card3 />
       </div>
     </div>
   );

@@ -1,5 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Dashboard, Homepage, Login, SignUp, Music, LeaderBoard} from "./pages";
+import {
+  Dashboard,
+  Homepage,
+  Login,
+  SignUp,
+  Music,
+  LeaderBoard,
+} from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
 
@@ -9,11 +16,11 @@ import MyPiano from "./components/Music/Keyboard";
 
 import { Toaster } from "react-hot-toast";
 import "./App.css";
-import Drums from "./components/Music/Drums";
 import { useAuthContext } from "./context/AuthContext";
 import useAarav from "./hooks/useAarav";
 import DataVisualisation from "./components/DataVisualisation";
 import Excel from "./components/Excel";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const { authUser } = useAuthContext();
@@ -42,7 +49,7 @@ function App() {
                 <LeaderBoard />
               </>
             }
-            />
+          />
           <Route
             path="/login"
             element={authUser ? <Navigate to="/dashboard" /> : <Login />}
@@ -50,7 +57,6 @@ function App() {
           <Route
             path="/signup"
             element={authUser ? <Navigate to="/dashboard" /> : <SignUp />}
-
           />
           <Route
             path="/music/drums"
@@ -61,7 +67,6 @@ function App() {
               </>
             }
           />
-          
           <Route
             path="/music/keyboard"
             element={

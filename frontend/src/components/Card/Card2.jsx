@@ -41,13 +41,12 @@ const Card2 = () => {
           <div className="title text-3xl text-white font-bold">
             <h1>Piano</h1>
           </div>
-          <div className="about text-l my-7 text-white">
+          <div className="about text-lg my-7 text-white">
             <p>
               The Piano Practice Tool Web Component offers pianists a virtual
               space to refine their skills. It boasts a chord library, scale
               generator, metronome, practice tracks, recording, playback, and
-              educational materials for holistic skill enhancement.ashbskjfbk
-              asdfghjklswedrftgyhijok
+              educational materials for holistic skill enhancement.
             </p>
           </div>
           <div className="register">
