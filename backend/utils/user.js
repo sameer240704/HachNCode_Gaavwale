@@ -40,8 +40,4 @@ const getUsers = (room) => {
 };
 
 // Exporting the functions to be used in other files
-module.exports = {
-  userJoin,
-  userLeave,
-  getUsers,
-};
+export { userJoin, userLeave, getUsers };

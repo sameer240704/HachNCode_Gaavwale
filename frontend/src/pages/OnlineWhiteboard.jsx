@@ -5,7 +5,7 @@ import JoinCreateRoom from "../components/OnlineWhiteboard/JoinCreateRoom";
 import Room from "../components/OnlineWhiteboard/Room";
 import Sidebar from "../components/OnlineWhiteboard/Sidebar";
 
-const server = "http://localhost:5000";
+const server = "http://localhost:4000";
 
 const connectionOptions = {
   "force new connection": true,
