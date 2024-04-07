@@ -17,14 +17,14 @@ const MyPiano = () => {
 
   return (
     <div
-      className="absolute inset-0 flex justify-center items-center"
+      className="absolute inset-0 flex  items-center ml-9"
       style={{
         paddingLeft: expanded ? '20vw' : '4vw',
         width: expanded ? '80vw' : '96vw',
       }}
     >
-      <div className="h-3/5 w-3/5 flex flex-col justify-center">
-        <div className="w-full flex justify-center">
+      <div className="h-3/5 w-3/5 flex flex-col">
+        <div className="w-full flex">
           <h1 className="text-3xl mb-10">Piano</h1>
         </div>
         <Piano

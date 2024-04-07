@@ -23,9 +23,9 @@ const DataVisualisation = ({ inputarr }) => {
             }}
         >
             <div className='flex flex-col w-3-5 h-screen p-10 justify-between items-center rounded-lg shadow-lg'>
-                <div className="font-[Poppins] text-3xl text-center">Visualize Data with Charts</div>
-                <div className='h-full w-1/2 mx-1 p-10 rounded-xl'>
-                    <h1 className='font-[Poppins] font-semibold text-3xl  text-center'>Charts</h1>
+                <div className="text-3xl text-center font-extrabold text-yellow-200 ">Visualize Data with Charts</div>
+                <div className='h-full w-1/2 mx-1 p-1 rounded-xl'>
+                    <h1 className='font-semibold text-3xl text-center my-0 py-0'>Charts</h1>
                     <div className="p-5 px-10 border m-2 rounded-md hover:shadow hover:shadow-white" id="BarChart" onClick={traveChart}>
                         <label htmlFor="barChart">Bar Chart</label><br />
                     </div>

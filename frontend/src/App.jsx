@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Dashboard, Homepage, Login, SignUp, Music, LeaderBoard} from "./pages";
+import { Dashboard, Homepage, Login, SignUp, Music, LeaderBoard, Courses} from "./pages";
 import { SidebarStateProvider } from "./hooks/useSidebarState";
 import Sidebar from "./components/Sidebar";
 
 import "./App.css";
 import Drums from "./components/Music/Drums";
+import SampleGuitarWithSound from "./components/Music/Guitar";
 import MyPiano from "./components/Music/Keyboard";
 
 import { Toaster } from "react-hot-toast";
 import "./App.css";
-import Drums from "./components/Music/Drums";
 import { useAuthContext } from "./context/AuthContext";
 import useAarav from "./hooks/useAarav";
 import DataVisualisation from "./components/DataVisualisation";
@@ -44,6 +44,15 @@ function App() {
             }
             />
           <Route
+            path="/courses"
+            element={
+              <>
+                <Sidebar />
+                <Courses />
+              </>
+            }
+            />
+          <Route
             path="/login"
             element={authUser ? <Navigate to="/dashboard" /> : <Login />}
           />
@@ -58,6 +67,15 @@ function App() {
               <>
                 <Sidebar />
                 <Drums />
+              </>
+            }
+          />
+          <Route
+            path="/music/guitar"
+            element={
+              <>
+                <Sidebar />
+                <SampleGuitarWithSound />
               </>
             }
           />
