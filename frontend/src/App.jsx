@@ -7,6 +7,8 @@ import "./App.css";
 import Drums from "./components/Music/Drums";
 import { useAuthContext } from "./context/AuthContext";
 import useAarav from "./hooks/useAarav";
+import DataVisualisation from "./components/DataVisualisation";
+import Excel from "./components/Excel";
 
 function App() {
   const { authUser } = useAuthContext();
@@ -48,6 +50,69 @@ function App() {
               <>
                 <Sidebar />
                 <Music />
+              </>
+            }
+          />
+          <Route
+            path="/visualization"
+            element={
+              <>
+                <Sidebar />
+                <DataVisualisation />
+              </>
+            }
+          />
+          <Route
+            path="/BarChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/LineChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/DoughnutChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/PieChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/BubbleChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
+              </>
+            }
+          />
+          <Route
+            path="/ScatterChart"
+            element={
+              <>
+                <Sidebar />
+                <Excel />
               </>
             }
           />

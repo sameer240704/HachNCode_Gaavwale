@@ -21,6 +21,7 @@ const SignUp = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		console.log(inputs);
 		await signup(inputs);
 	};
 
@@ -159,9 +160,9 @@ const SignUp = () => {
 								type="file"
 								placeholder="Input Profile"
 								className="rounded-lg w-full input input-bordered px-4 h-10 text-orange-300"
-								value={inputs.profilepic}
+								value={inputs.Profile}
 								onChange={(e) =>
-									setInputs({ ...inputs, confirmPassword: e.target.value })
+									setInputs({ ...inputs, Profile: e.target.value })
 								}
 							/>
 						</div>

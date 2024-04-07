@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LoginIcon from "@mui/icons-material/Login";
+import { Link } from "react-router-dom";
 
 const Navigaton = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -59,9 +60,9 @@ const Navigaton = () => {
           </a>
         </li>
 
-        <button className="nav-items-button" type="submit">
-          <span>Sign Up</span>
-        </button>
+        <Link to="/signup" className="nav-items-button" type="submit">
+          <span>Sign up</span>
+        </Link>
         {/* <button className='nav-items-button-log' type="submit"><span>Log In</span></button> */}
       </ul>
     </div>

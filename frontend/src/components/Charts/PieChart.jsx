@@ -7,7 +7,7 @@ const PieChart = ({ inputarr }) => {
     const [chartData, setChartData] = useState({
         labels: [],
         datasets: [{
-            label: 'Doughnut Chart Representation',
+            label: 'Pie Chart Representation',
             data: [],
             backgroundColor: []
         }]
