@@ -12,7 +12,7 @@ const SignUp = () => {
 		email: "",
 		standard: "",
 		school: "",
-		Profile: "",
+		profilePic: "",
 		password: "",
 		confirmPassword: ""
 	});
@@ -158,11 +158,10 @@ const SignUp = () => {
 							</label>
 							<input
 								type="file"
-								placeholder="Input Profile"
 								className="rounded-lg w-full input input-bordered px-4 h-10 text-orange-300"
-								value={inputs.Profile}
+								name="my_file"
 								onChange={(e) =>
-									setInputs({ ...inputs, Profile: e.target.value })
+									setInputs({ ...inputs, profilePic: e.target.files[0] })
 								}
 							/>
 						</div>

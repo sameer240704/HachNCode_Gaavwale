@@ -106,7 +106,7 @@ function App() {
             path="/signup"
             element={authUser ? <Navigate to="/dashboard" /> : <SignUp />}
           />
-          <Route path="/" element={!authUser ? <Homepage /> : <Navigate to='/' />} />
+          <Route path="/" element={!authUser ? <Navigate to='/' /> : <Navigate to="/dashboard" />} />
           <Route
             path="/music/drums"
             element={
