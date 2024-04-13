@@ -19,8 +19,6 @@ const userSchema = new Schema(
     },
     profilePic: {
       type: String,
-      default:
-        "https://res.cloudinary.com/gaavwale/image/upload/v1712414241/public/szwigkyzs9xvoagviu8t.png",
     },
     email: {
       type: String,
