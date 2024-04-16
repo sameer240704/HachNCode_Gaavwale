@@ -12,6 +12,7 @@ const useSignup = () => {
     email,
     standard,
     school, // Change 'Profile' to 'profilePic'
+    profilePic,
     password,
     confirmPassword,
   }) => {
@@ -28,6 +29,7 @@ const useSignup = () => {
     if (!success) toast.error("Please fill in all fields");
     setLoading(true);
     try {
+      const pictureData = await uploadProfilePicture(profilePic);
       const res = await fetch("http://localhost:4000/api/auth/register", {
         method: "POST",
         headers: {
@@ -38,6 +40,7 @@ const useSignup = () => {
           username,
           password,
           confirmPassword,
+          profilePic: pictureData.url,
           email,
           standard,
           school,
@@ -55,6 +58,27 @@ const useSignup = () => {
       toast.error(error.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const uploadProfilePicture = async (file) => {
+    try {
+      const formData = new FormData();
+      formData.append("my_file", file);
+
+      const res = await fetch("http://localhost:4000/api/auth/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      return data;
+    } catch (error) {
+      throw new Error("Error uploading profile picture");
     }
   };
 

@@ -48,7 +48,7 @@ export default function Sidebar() {
 
         <div className="border-t flex p-3">
           <img
-            src={authUser.profilePic || "https://res.cloudinary.com/gaavwale/image/upload/v1712414241/public/szwigkyzs9xvoagviu8t.png"}
+            src={authUser.profilePic}
             alt=""
             className="w-10 h-10 rounded-md"
           />

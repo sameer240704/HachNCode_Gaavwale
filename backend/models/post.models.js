@@ -4,8 +4,7 @@ const postSchema = new Schema(
   {
     image: {
       type: String,
-      default:
-        "https://res.cloudinary.com/gaavwale/image/upload/v1712424179/public/yry7ozpoahe776ebzhd7.jpg",
+      default: "",
     },
     details: {
       type: String,
