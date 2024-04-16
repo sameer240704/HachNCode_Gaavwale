@@ -23,18 +23,19 @@ const Login = () => {
         <div className="w-full p-6 rounded-lg shadow-md bg-gray-800">
           <h1 className="text-3xl font-semibold text-center text-gray-300">
             Login
-            <span className="text-yellow-200"> Edutainment</span>
+            <span className="text-yellow-200"> Artify</span>
           </h1>
 
           <form>
             <div>
               <label className="label p-2">
-                <span className="text-base text-yellow-200 label-text">Username</span>
+                <span className="text-base text-yellow-200 label-text">
+                  Username
+                </span>
               </label>
               <input
                 type="text"
                 placeholder="Enter username"
-
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="rounded-lg px-4 w-full input input-bordered h-10 bg-gray-600 text-green-300"
@@ -43,26 +44,28 @@ const Login = () => {
 
             <div>
               <label className="label p-2">
-                <span className="text-base text-yellow-200 label-text">Email</span>
+                <span className="text-base text-yellow-200 label-text">
+                  Email
+                </span>
               </label>
               <input
                 type="text"
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full input input-bordered h-10 bg-gray-600 text-green-300"
-
+                className="w-full input input-bordered h-10 bg-gray-600 text-green-300 rounded-lg px-4"
               />
             </div>
 
             <div>
               <label className="label">
-                <span className="text-base text-yellow-200 label-text">Password</span>
+                <span className="text-base text-yellow-200 label-text">
+                  Password
+                </span>
               </label>
               <input
                 type="password"
                 placeholder="Enter Password"
-
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="off"
@@ -79,20 +82,20 @@ const Login = () => {
             <div>
               <button
                 className="rounded-lg btn btn-block btn-sm mt-2 border border-slate-700 text-gray-800 bg-white hover:text-orange-300 border-none px-10 py-3"
-                disabled={loading} onClick={handleSubmit}
-            >
+                disabled={loading}
+                onClick={handleSubmit}
+              >
                 {loading ? (
-                    <span className="loading loading-spinner"></span>
+                  <span className="loading loading-spinner"></span>
                 ) : (
-                    "Log In"
+                  "Log In"
                 )}
-            </button>
+              </button>
             </div>
-          </form >
-        </div >
-      </div >
-    </div >
-
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 export default Login;

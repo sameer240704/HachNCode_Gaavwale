@@ -51,21 +51,17 @@ const MyPiano = () => {
     >
       <div className="h-3/5 w-3/5 flex flex-col">
         <div className="w-full flex">
-          <h1 className="text-3xl mb-10">Piano</h1>
+          <h1 className="text-4xl mb-10">Piano</h1>
         </div>
-        <Piano
-          noteRange={{ first: firstNote, last: lastNote }}
-          // playNote={(midiNumber) => {
-          //   console.log(`Playing note ${midiNumber}`);
-          // }}
-          // stopNote={(midiNumber) => {
-          //   console.log(`Stopping note ${midiNumber}`);
-          // }}
-          playNote={playNote}
-          stopNote={stopNote}
-          width={1000}
-          keyboardShortcuts={keyboardShortcuts}
-        />
+        <div className="mt-20">
+          <Piano
+            noteRange={{ first: firstNote, last: lastNote }}
+            playNote={playNote}
+            stopNote={stopNote}
+            width={expanded ? 1150 : 1400}
+            keyboardShortcuts={keyboardShortcuts}
+          />
+        </div>
       </div>
     </div>
   );

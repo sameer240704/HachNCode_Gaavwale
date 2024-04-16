@@ -41,7 +41,7 @@ const ClientRoom = ({ userNo, socket, setUsers, setUserNo }) => {
       </div>
       <div className="row mt-5">
         <div
-          className="col-md-8 overflow-hidden border border-dark px-0 mx-auto
+          className="col-md-8 overflow-hidden bg-white rounded-xl px-0 mx-auto
           mt-3"
           style={{ height: "500px" }}
         >
